@@ -22,56 +22,21 @@ const { NotImplementedError } = require('../extensions/index.js');
  *   }
  * }
  */
- class ListNode {
-   constructor(x) {
-   this.value = x;
-   this.next = null;
-   }
- }
-
- class LinkedList {
-  constructor() {
-    this.head = null;
-  }
-
-  append(value) {
-    const node = new ListNode(value);
-    if(!this.head) {
-      this.head = node;
-    } else {
-      let current = this.head;
-      while (current.next) {
-        current = current.next;
-      }
-      current.next = node;
-    }  
-  } 
-
-  remove(el) {
-    while (this.head.value === el) {
-      this.head = this.head.next;
-    }
-    let current = this.head;
-    while (current.next) {
-      if (current.next.value === el) {
-        current.next = current.next.next;
-      } else {
-        current = current.next;
-      }
-    }
-  }
-}
 
 function removeKFromList(l, k) {
   // throw new NotImplementedError('Not implemented');
-
-  const list = new LinkedList();
-  for(let i = 0; i < l.length; i++) {
-    list.append(l[i]);
+  if (l.value === k) {
+    l = l.next;
   }
-  list.remove(k);
-  return list.head;
-
+  let current = l;
+  while (current.next) {
+    if (current.next.value === k) {
+      current.next = current.next.next || null;
+    } else {
+      current = current.next || null;
+    }
+  }
+  return l;
 }
 
 module.exports = {

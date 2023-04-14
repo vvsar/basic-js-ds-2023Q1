@@ -42,9 +42,7 @@ class Queue {
     let n = this.head.value;
     this.head = this.head.next;
     let current = this.head;
-    
     while(current.next) {
-      
       current = current.next;
     }
     return n;

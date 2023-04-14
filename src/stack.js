@@ -17,9 +17,9 @@ class Stack {
     this.array = [];
   }
 
-  push(element) {
+  push(el) {
     // throw new NotImplementedError('Not implemented');
-    this.array.push(element);
+    this.array.push(el);
   }
 
   pop() {
